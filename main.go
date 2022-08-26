@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"twittor/db"
+	"twittor/handlers"
+)
 
 func main() {
-	fmt.Println("OK")
+	if db.CheckConnection() == 0 {
+		log.Fatal("Sem conexão com banco de dados")
+		return
+	}
+	db.ConectarDB()
+	handlers.Handlers()
 }
