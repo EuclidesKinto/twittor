@@ -8,7 +8,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-/*MongoCN es el objeto de conexión a la BD */
 var MongoCN = ConectarDB()
 
 func ConectarDB() *mongo.Client {
