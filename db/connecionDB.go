@@ -2,6 +2,7 @@ package db
 
 import (
 	"context"
+	"fmt"
 	"log"
 
 	"go.mongodb.org/mongo-driver/mongo"
@@ -21,7 +22,7 @@ func ConectarDB() *mongo.Client {
 		log.Fatal(err.Error())
 		return client
 	}
-	log.Println("Conexão bem-sucedida com o banco de dados")
+	fmt.Println("Conexão bem-sucedida com o banco de dados")
 	return client
 
 }

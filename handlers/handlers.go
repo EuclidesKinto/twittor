@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -14,6 +15,7 @@ func Handlers() {
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
+		fmt.Println("Server port 8080")
 		PORT = "8080"
 	}
 

@@ -11,6 +11,6 @@ func main() {
 		log.Fatal("Sem conexão com banco de dados")
 		return
 	}
-	db.ConectarDB()
+	// db.ConectarDB()
 	handlers.Handlers()
 }
