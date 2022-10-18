@@ -6,12 +6,16 @@ import (
 	"net/http"
 	"os"
 
+	"twittor/middleware"
+
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
 
 func Handlers() {
 	router := mux.NewRouter()
+
+	router.HandleFunc("/register", middleware.CheckDB(routers.Register)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
