@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"twittor/middleware"
+	"twittor/routers"
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
@@ -19,7 +20,7 @@ func Handlers() {
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
-		fmt.Println("Server port 8080")
+		fmt.Println("Server port 8080" + PORT)
 		PORT = "8080"
 	}
 

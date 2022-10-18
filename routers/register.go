@@ -22,23 +22,23 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(t.Email) < 6 {
-		http.Error(w, "O email tem q ter no minimo 6 caracteres", 400)
+		http.Error(w, "O email tem q ter no mínimo 6 caracteres", 400)
 		return
 	}
 
 	_, findEmail, _ := db.CheckUser(t.Email)
-	if findEmail == true {
+	if findEmail {
 		http.Error(w, "Já existe usuário com esse email", 400)
 		return
 	}
 
 	_, status, err := db.InsertRegister(t)
 	if err != nil {
-		http.Error(w, "Ocorreu um erro ao relalizar o registro de usuário "+err.Error(), 400)
+		http.Error(w, "Ocorreu um erro ao realizar o registro de usuário "+err.Error(), 400)
 		return
 	}
 
-	if status == false {
+	if !status {
 		http.Error(w, "erro no registro de usuário ", 400)
 		return
 	}
